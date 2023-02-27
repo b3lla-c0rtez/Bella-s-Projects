@@ -1,0 +1,4 @@
+In this course we explore: file processing 
+the information is in the computer 
+36, 60, 44 
+Hello, world!

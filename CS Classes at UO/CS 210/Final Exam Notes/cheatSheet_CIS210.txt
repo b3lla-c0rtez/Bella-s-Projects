@@ -1,0 +1,229 @@
+CIS 210 MIDTERM 1 CHEAT SHEET
+by Clara Morrison
+
+keyword- defined by python, can't be used as a variable 
+identifier- variable name
+primitive element- numbers, "building blocks"
+
+DATA TYPES
+str- text
+int- integers
+float- decimals
+bool- True or False
+list- list, can be changed and indexed
+tuple- multiple items in a variable
+NoneType- returns nothing
+
+
+BUILT-IN FUNCTIONS
+print(x): prints message to output device
+abs(x)- finds the absolute value of a number
+round(x,n)- rounds float to nearest integer
+len(s)- finds length of a string
+float/int/str/etc..(x): changes type of x to what is specified 
+range(a,b,n)- returns a sequence of numbers, starting from a (0 by default) 
+	increments by n, and ends at b (non-inclusive). Often used in for loops.
+	
+	In IDLE:
+type(x): gives type of variable
+help(x): outputs definition and explanation on how to utilize function x
+dir(x)- Returns a list of x's properties and methods
+
+
+USER FUNCTIONS
+def [function name](parameters): creates new function that can be called 
+return []: returns object to outside of the function, only output given if the function is called
+main(): function that calls all other functions in the program
+	use if __name__ == ' __main__’: before calling main if it will be used as a module (don't ask me why)
+
+Local variables: declared in function, can only be used in function.
+Global variables: declared outside of function, can be called from inside function.
+
+
+OPERATORS
+	Arithmetic:
++ - / *: add, subtract, divide, multiply
+**- exponent
+% (modulo)- returns remainder of division
+//- returns integer with no remainders of division
+
+	Assignment:
+=: variable on left is set equal to object on the right
++=: adds to total
+-=: subtracts from total
+
+	Comparison (returns bool):
+==: equal
+!=: not equal
+>=: greater than/ equal to
+<=: less than/ equal to
+
+	Logical:
+and- Returns True if both statements are true
+or-  Returns True if one of the statements is true
+not- Reverse the result, returns False if the result is true
+
+
+LOOPS
+	while: executes a set of statements as long as a condition is true
+		while i > x:
+		can utilizes a counter (ex. i+=1) to make loop finite
+		else statements provide alternate to loop
+		
+	for: iterates statements sequentially within a given range
+		for x in [list]/range(y):
+
+
+CONDITIONALS
+	if [x == y]: only runs code if sepcific conditions are true
+	elif [x == z]: gives sperate set of conditions to run code
+	else: catch-all if statements don't fit in any of the previous conditions
+
+	comparison operators are usually utilized to create conditions
+	identations must line up! !!
+
+
+ERRORS
+SyntaxError: not following proper structure
+TypeError: wrong type for operation
+NameError: object was not defined (could be a local variable)
+KeyError: key does not exist in called dict
+
+
+STRING METHODS [str.method()]
+upper/lower()- Converts a string into upper or lower case
+capitalize()- Converts the first character to upper case
+title()- capitalizes first letter of each word
+
+count(s)- returns number of times n was found in the string
+find/index(x,a,b)- Searches the string for value x from a to b and returns position
+	find returns -1 if not found, index returns an exception
+replace(x,y,n)- replaces all x's in str with y (opt. define how many to replace (n))
+strip(char)- Returns a trimmed version (removing chars if specified) of the string
+split(s,n)- Splits the string at separator s (or whitespace by default) 
+	and returns a list. n = max splits (opt.)
+	splitlines(s)- splits at '\n' and returns lines as list.
+	
+is__(s)- returns True if all chars in str match condition (digit,upper,space...)
+r/l__(s)- runs function starting from left or right (strip,find,split...)
+
+	STR FORMATTING
+{:f}.format(s) or format(s,f): formats string using f
+	f = [[fill]align][sign][#][0][width][,][.precision][type]
+	
+	FILL fills empty space with character given
+	ALIGN </>/^ aligns left, right, or center
+	SIGN +/-/  forces signs, forces negative signs, or removes signs
+	WIDTH any interger, determines empty space around value 
+	,/_ use symbol as thousands seperator
+	PRECISION . followed by an interger determines # of decimal places it rounds to
+	TYPE sepcifies a certain format 
+		f fixed point number
+		% percentage 
+		b binary
+
+f'{x}'- f-strings
+	variables/expressions can be called in brackets without interrupting string
+	
+LIST METHODS  [list].method()
+	count, index from str methods
+	append(s): adds item to existing string
+	remove(s): removes specified item from str
+	pop(x): removes item at specified position and returns item
+	
+	List Comprehensions: [expression for item in iterable if condition == True]
+		simplifies for and if statements to one line
+
+DICTIONARIES {key:value}
+	dict(key = value,...) or ([(key,value),...]): creates dictionary from arguments or tuple list
+
+	dict[key]: returns value of key, KeyError if no key found
+	dict[key] = value: changes value of key or adds new key and value
+	
+	DICT METHODS {}.method()
+		get(k): returns value of key, returns None if does not exist
+		update(x): adds tuple/key-value pair to dict, overwrites existing key if it exists
+		pop(k,d): removes item with k key and returns item, returns error if key doesn't exist unless d is specified
+			popitem() removes last key-value pair in dict
+			
+		keys(): returns list of dict's keys
+		values(): returns list of dict's values
+		items(): returns tuple list of dict's key-value pairs
+
+
+FILE PROCESSING (.txt or .csv)
+	file must be in the same folder as program or directory must be specified (Windows)
+
+	open(f,m): opens file with name f with m functionality; file must be opened before anything else
+		m == 'r'- read (does not create file), 'a'- append, 'w'- write (overwrites all previous data), 'x'- create
+		
+	use 'with open(file,m) as variable:' to automatically close file when done
+		otherwise, use openfile.close()
+		variable is used in all other file handling
+	
+	MODE 'R'
+	f.read(): reads and returns entire file contents
+		readline(): reads and returns one line of file, can be used to skip headers
+		readlines(): reads file and returns each line in a list
+	
+	MODE 'W' or 'A'
+	f.write(s): writes str s to open file f
+
+
+IMPORT 
+import [module]- imports module that adds new functionality
+	to call: module.function()
+
+	from [module] import *: imports specific function, * imports all
+		to call: function()
+	
+		math: imports mathematical equations and constants
+			pi: returns the value of pi
+			
+		turtle: a visual module that can be used to draw 
+			getscreen(): displays drawing board
+			fd/bk(x): movesturtle forward or back x units.
+			rt/lt(x): turns turtle x degrees right or left
+			peunup/pendown(): lifts pen to stop drawing and vice versa
+			goto(x,y): moves turtle to specific coords. 
+			can also change color, size, speed, and make shapes. 
+			
+		random: used to make random numbers	
+			random(): Returns a random float number between 0 and 1
+		
+		datetime: used to work with time and dates
+			date(y,m,d) or .today(): returns date given or today in date format
+			time(h,m,s) or .now(): returns hours, mins, secs, and microsecs of time given or current time
+			datetime(y,mo,d,h,min,s,ms): returns datetime given in datetime format
+		
+		doctest: tests code examples
+			testmod: used to test doc strings 
+			
+	custom modules can be imported if the .py file is in the same file as 
+	the current program.
+		make sure if __name__ == ' __main__’: is included in the module
+
+
+HEADER TEMPLATE
+'''
+CIS 210 Winter 2021
+Project X-X: [Project Title]
+
+Author: Clara Morrison
+
+Credits: N/A
+
+[description of program]
+'''
+
+DOCSTRING TEMPLATE
+    '''
+    ([input type for each parameter]) -> [output type]
+    [description of function. include parameters, and what it returns, calls, and is called by.]
+    >>> example
+    output
+    >>> example
+    output
+    '''
+
+** Use print(doctest.testmod()) to check docstrings**

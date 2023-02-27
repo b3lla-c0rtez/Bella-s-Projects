@@ -1,0 +1,6 @@
+COVID-19 Vaccinations in the State
+Date generated: Fri Feb 05 2021 13:52:42 GMT-0800 (Pacific Standard Time)
+State Total_Population Total_Delivered Total_Administered People_with_1+_doses People_with_2_doses
+California 39510000 6438225 3723803 3085932 625189
+Oregon 4218000 706575 471983 369704 100414
+Washington 7615000 1168625 797358 637940 147498
