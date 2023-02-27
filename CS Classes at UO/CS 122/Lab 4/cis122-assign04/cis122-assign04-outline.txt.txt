@@ -1,0 +1,8 @@
+1. use the function is_leap_year from lab 4 in assignment 4
+2. input a day and year
+3. check the year (see if it is a leap year or not)
+4. if it is a leap year, print saying it is a leap year/true
+5. if it is not, then print that it is not a leap year/false
+6. have the user input a number greater than 0 less than 365
+7. return with a date based on the number
+8. print results
