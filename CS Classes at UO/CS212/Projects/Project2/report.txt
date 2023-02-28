@@ -1,0 +1,7 @@
+Name: Isabella Cortez
+
+Duck ID: icortez6
+
+Names of Classmates who Helped me: Lexi Vives helped me with pseudocode for wcnt and helped me test wcnt. Daniel Willard helped me a little bit with character count and with wcfilter explaining what exactly we were being asked. Catherine helped me with wcargs pseudocode and told me which book page to reference. They all helped me with bugtesting a little bit.
+
+Current State: all of the test cases run correctly
