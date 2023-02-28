@@ -1,8 +1,0 @@
-7
-print
-enqueue 1
-enqueue 2
-print
-dequeue
-dequeue
-dequeue

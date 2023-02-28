@@ -1,1 +1,0 @@
-tr -s '[:upper:] && [:lower:] '\n' | sort | uniq -c

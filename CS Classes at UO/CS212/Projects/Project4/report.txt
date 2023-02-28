@@ -1,8 +1,0 @@
-Name: Isabella Cortez
-
-Duck ID: icortez6
-
-Classmates: Avery Meyers helped explain split for string functions and why I don't put a space within the quotes. 
-***unrelated but your Tuesday office hours and Jared's Tuesday office hours helped me understand the pseudocode and what to do in the main function with standard input and the void function syntax***
-
-Current State of Submission: All of the test cases work and there are no memory leaks.

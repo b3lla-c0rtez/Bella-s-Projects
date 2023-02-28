@@ -1,9 +1,0 @@
-Name: Isabella Cortez
-
-Duck ID: icortez6
-
-Classmates who helped: Avery Meyers
-
-Type of help: Avery helped me bugfix, understand error outputs, and understand both translate and sort for the pipeline.
-
-The code passes all 4 test cases.

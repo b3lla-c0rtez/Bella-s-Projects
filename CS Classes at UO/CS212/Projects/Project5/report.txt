@@ -1,7 +1,0 @@
-Name: Isabella Cortez
-
-Duck ID: icortez6
-
-Names of people that helped: Avery Meyers helped me understand the pseudocode and Ryan Laursen helped me fix bugs.
-
-Current state of project: Everything works and there are no memory leaks.

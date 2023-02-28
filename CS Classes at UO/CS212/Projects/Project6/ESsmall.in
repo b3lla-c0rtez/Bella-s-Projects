@@ -1,8 +1,0 @@
-7
-print
-push 1
-push 2
-print
-pop
-pop
-pop
