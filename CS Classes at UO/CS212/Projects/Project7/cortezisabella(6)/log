@@ -1,0 +1,831 @@
+Starting examination of submission by cortezisabella
+Compiling exerciseQueue.c
+cc -W -Wall -I/usr/local/include -g   -c -o exerciseQueue.o exerciseQueue.c
+Linking your exerciseQueue with library implementation of a Queue
+gcc -L/usr/local/lib -g -o exerciseQueue exerciseQueue.o -lADTs
+Testing against EQsmall.in
+Testing against EQmedium.in
+Testing against EQunkmed.in
+Testing against EQunklg.in
+==25525== Memcheck, a memory error detector
+==25525== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25525== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==25525== Command: ./exerciseQueue EQmedium.in
+==25525== 
+==25525== 
+==25525== HEAP SUMMARY:
+==25525==     in use at exit: 0 bytes in 0 blocks
+==25525==   total heap usage: 51 allocs, 51 frees, 10,640 bytes allocated
+==25525== 
+==25525== All heap blocks were freed -- no leaks are possible
+==25525== 
+==25525== For counts of detected and suppressed errors, rerun with: -v
+==25525== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+Compiling llistqueue.c
+cc -W -Wall -I/usr/local/include -g   -c -o llistqueue.o llistqueue.c
+Linking my exerciseQueue with your llistqueue.o
+gcc -L/usr/local/lib -g -o exerciseQueue2 JSSexerciseQueue.o llistqueue.o -lADTs
+Testing against EQmedium.in
+==25538== Memcheck, a memory error detector
+==25538== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25538== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==25538== Command: ./exerciseQueue2 EQmedium.in
+==25538== 
+==25538== 
+==25538== HEAP SUMMARY:
+==25538==     in use at exit: 0 bytes in 0 blocks
+==25538==   total heap usage: 88 allocs, 88 frees, 10,840 bytes allocated
+==25538== 
+==25538== All heap blocks were freed -- no leaks are possible
+==25538== 
+==25538== For counts of detected and suppressed errors, rerun with: -v
+==25538== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+More find-grained tests of your queue implementation
+Linking longtest to your llistqueue.o
+gcc -L/usr/local/lib -g -o longtest longtest.o llistqueue.o sort.o -lADTs
+Test - performing test 1 on your llistqueue.o
+==25543== Memcheck, a memory error detector
+==25543== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25543== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==25543== Command: ./longtest 1
+==25543== 
+Test creation and destruction of a queue ... success
+==25543== 
+==25543== HEAP SUMMARY:
+==25543==     in use at exit: 0 bytes in 0 blocks
+==25543==   total heap usage: 3 allocs, 3 frees, 4,216 bytes allocated
+==25543== 
+==25543== All heap blocks were freed -- no leaks are possible
+==25543== 
+==25543== For counts of detected and suppressed errors, rerun with: -v
+==25543== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+Test - performing test 2 on your llistqueue.o
+==25544== Memcheck, a memory error detector
+==25544== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25544== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==25544== Command: ./longtest 2
+==25544== 
+==25544== Invalid read of size 8
+==25544==    at 0x109D46: freeList (llistqueue.c:35)
+==25544==    by 0x109DA4: q_destroy (llistqueue.c:43)
+==25544==    by 0x109316: main (longtest.c:39)
+==25544==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==25544== 
+==25544== 
+==25544== Process terminating with default action of signal 11 (SIGSEGV)
+==25544==  Access not within mapped region at address 0x0
+==25544==    at 0x109D46: freeList (llistqueue.c:35)
+==25544==    by 0x109DA4: q_destroy (llistqueue.c:43)
+==25544==    by 0x109316: main (longtest.c:39)
+==25544==  If you believe this happened as a result of a stack
+==25544==  overflow in your program's main thread (unlikely but
+==25544==  possible), you can try to increase the size of the
+==25544==  main thread stack using the --main-stacksize= flag.
+==25544==  The main thread stack size used in this run was 8388608.
+Test enqueue of a single value ... success
+==25544== 
+==25544== HEAP SUMMARY:
+==25544==     in use at exit: 136 bytes in 3 blocks
+==25544==   total heap usage: 4 allocs, 1 frees, 4,232 bytes allocated
+==25544== 
+==25544== LEAK SUMMARY:
+==25544==    definitely lost: 0 bytes in 0 blocks
+==25544==    indirectly lost: 0 bytes in 0 blocks
+==25544==      possibly lost: 0 bytes in 0 blocks
+==25544==    still reachable: 136 bytes in 3 blocks
+==25544==         suppressed: 0 bytes in 0 blocks
+==25544== Rerun with --leak-check=full to see details of leaked memory
+==25544== 
+==25544== For counts of detected and suppressed errors, rerun with: -v
+==25544== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+./tscript: line 51: 25544 Segmentation fault      valgrind ./longtest $i
+Test - performing test 3 on your llistqueue.o
+==25545== Memcheck, a memory error detector
+==25545== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25545== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==25545== Command: ./longtest 3
+==25545== 
+Test isEmpty() on an empty queue ... success
+==25545== 
+==25545== HEAP SUMMARY:
+==25545==     in use at exit: 0 bytes in 0 blocks
+==25545==   total heap usage: 3 allocs, 3 frees, 4,216 bytes allocated
+==25545== 
+==25545== All heap blocks were freed -- no leaks are possible
+==25545== 
+==25545== For counts of detected and suppressed errors, rerun with: -v
+==25545== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+Test - performing test 4 on your llistqueue.o
+==25546== Memcheck, a memory error detector
+==25546== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25546== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==25546== Command: ./longtest 4
+==25546== 
+==25546== Invalid read of size 8
+==25546==    at 0x109D46: freeList (llistqueue.c:35)
+==25546==    by 0x109DA4: q_destroy (llistqueue.c:43)
+==25546==    by 0x109401: main (longtest.c:60)
+==25546==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==25546== 
+==25546== 
+==25546== Process terminating with default action of signal 11 (SIGSEGV)
+==25546==  Access not within mapped region at address 0x0
+==25546==    at 0x109D46: freeList (llistqueue.c:35)
+==25546==    by 0x109DA4: q_destroy (llistqueue.c:43)
+==25546==    by 0x109401: main (longtest.c:60)
+==25546==  If you believe this happened as a result of a stack
+==25546==  overflow in your program's main thread (unlikely but
+==25546==  possible), you can try to increase the size of the
+==25546==  main thread stack using the --main-stacksize= flag.
+==25546==  The main thread stack size used in this run was 8388608.
+Test isEmpty() on a non-empty queue ... success
+==25546== 
+==25546== HEAP SUMMARY:
+==25546==     in use at exit: 136 bytes in 3 blocks
+==25546==   total heap usage: 4 allocs, 1 frees, 4,232 bytes allocated
+==25546== 
+==25546== LEAK SUMMARY:
+==25546==    definitely lost: 0 bytes in 0 blocks
+==25546==    indirectly lost: 0 bytes in 0 blocks
+==25546==      possibly lost: 0 bytes in 0 blocks
+==25546==    still reachable: 136 bytes in 3 blocks
+==25546==         suppressed: 0 bytes in 0 blocks
+==25546== Rerun with --leak-check=full to see details of leaked memory
+==25546== 
+==25546== For counts of detected and suppressed errors, rerun with: -v
+==25546== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+./tscript: line 51: 25546 Segmentation fault      valgrind ./longtest $i
+Test - performing test 5 on your llistqueue.o
+==25547== Memcheck, a memory error detector
+==25547== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25547== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==25547== Command: ./longtest 5
+==25547== 
+Test front() on an empty queue ... success
+==25547== 
+==25547== HEAP SUMMARY:
+==25547==     in use at exit: 0 bytes in 0 blocks
+==25547==   total heap usage: 3 allocs, 3 frees, 4,216 bytes allocated
+==25547== 
+==25547== All heap blocks were freed -- no leaks are possible
+==25547== 
+==25547== For counts of detected and suppressed errors, rerun with: -v
+==25547== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+Test - performing test 6 on your llistqueue.o
+==25548== Memcheck, a memory error detector
+==25548== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25548== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==25548== Command: ./longtest 6
+==25548== 
+==25548== Invalid read of size 8
+==25548==    at 0x109D46: freeList (llistqueue.c:35)
+==25548==    by 0x109DA4: q_destroy (llistqueue.c:43)
+==25548==    by 0x109501: main (longtest.c:83)
+==25548==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==25548== 
+==25548== 
+==25548== Process terminating with default action of signal 11 (SIGSEGV)
+==25548==  Access not within mapped region at address 0x0
+==25548==    at 0x109D46: freeList (llistqueue.c:35)
+==25548==    by 0x109DA4: q_destroy (llistqueue.c:43)
+==25548==    by 0x109501: main (longtest.c:83)
+==25548==  If you believe this happened as a result of a stack
+==25548==  overflow in your program's main thread (unlikely but
+==25548==  possible), you can try to increase the size of the
+==25548==  main thread stack using the --main-stacksize= flag.
+==25548==  The main thread stack size used in this run was 8388608.
+Test front() on a non-empty queue ... success
+==25548== 
+==25548== HEAP SUMMARY:
+==25548==     in use at exit: 136 bytes in 3 blocks
+==25548==   total heap usage: 4 allocs, 1 frees, 4,232 bytes allocated
+==25548== 
+==25548== LEAK SUMMARY:
+==25548==    definitely lost: 0 bytes in 0 blocks
+==25548==    indirectly lost: 0 bytes in 0 blocks
+==25548==      possibly lost: 0 bytes in 0 blocks
+==25548==    still reachable: 136 bytes in 3 blocks
+==25548==         suppressed: 0 bytes in 0 blocks
+==25548== Rerun with --leak-check=full to see details of leaked memory
+==25548== 
+==25548== For counts of detected and suppressed errors, rerun with: -v
+==25548== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+./tscript: line 51: 25548 Segmentation fault      valgrind ./longtest $i
+Test - performing test 7 on your llistqueue.o
+==25549== Memcheck, a memory error detector
+==25549== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25549== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==25549== Command: ./longtest 7
+==25549== 
+Test dequeue() on an empty queue ... success
+==25549== 
+==25549== HEAP SUMMARY:
+==25549==     in use at exit: 0 bytes in 0 blocks
+==25549==   total heap usage: 3 allocs, 3 frees, 4,216 bytes allocated
+==25549== 
+==25549== All heap blocks were freed -- no leaks are possible
+==25549== 
+==25549== For counts of detected and suppressed errors, rerun with: -v
+==25549== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+Test - performing test 8 on your llistqueue.o
+==25550== Memcheck, a memory error detector
+==25550== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25550== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==25550== Command: ./longtest 8
+==25550== 
+Test dequeue() on an non-empty queue ... success
+==25550== 
+==25550== HEAP SUMMARY:
+==25550==     in use at exit: 0 bytes in 0 blocks
+==25550==   total heap usage: 4 allocs, 4 frees, 4,232 bytes allocated
+==25550== 
+==25550== All heap blocks were freed -- no leaks are possible
+==25550== 
+==25550== For counts of detected and suppressed errors, rerun with: -v
+==25550== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+Test - performing test 9 on your llistqueue.o
+==25551== Memcheck, a memory error detector
+==25551== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25551== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==25551== Command: ./longtest 9
+==25551== 
+Test size() on an empty queue ... success
+==25551== 
+==25551== HEAP SUMMARY:
+==25551==     in use at exit: 0 bytes in 0 blocks
+==25551==   total heap usage: 3 allocs, 3 frees, 4,216 bytes allocated
+==25551== 
+==25551== All heap blocks were freed -- no leaks are possible
+==25551== 
+==25551== For counts of detected and suppressed errors, rerun with: -v
+==25551== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+Test - performing test 10 on your llistqueue.o
+==25552== Memcheck, a memory error detector
+==25552== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25552== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==25552== Command: ./longtest 10
+==25552== 
+==25552== Invalid read of size 8
+==25552==    at 0x109D46: freeList (llistqueue.c:35)
+==25552==    by 0x109DA4: q_destroy (llistqueue.c:43)
+==25552==    by 0x1096ED: main (longtest.c:127)
+==25552==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==25552== 
+==25552== 
+==25552== Process terminating with default action of signal 11 (SIGSEGV)
+==25552==  Access not within mapped region at address 0x0
+==25552==    at 0x109D46: freeList (llistqueue.c:35)
+==25552==    by 0x109DA4: q_destroy (llistqueue.c:43)
+==25552==    by 0x1096ED: main (longtest.c:127)
+==25552==  If you believe this happened as a result of a stack
+==25552==  overflow in your program's main thread (unlikely but
+==25552==  possible), you can try to increase the size of the
+==25552==  main thread stack using the --main-stacksize= flag.
+==25552==  The main thread stack size used in this run was 8388608.
+Test size() on a non-empty queue ... success
+==25552== 
+==25552== HEAP SUMMARY:
+==25552==     in use at exit: 136 bytes in 3 blocks
+==25552==   total heap usage: 4 allocs, 1 frees, 4,232 bytes allocated
+==25552== 
+==25552== LEAK SUMMARY:
+==25552==    definitely lost: 0 bytes in 0 blocks
+==25552==    indirectly lost: 0 bytes in 0 blocks
+==25552==      possibly lost: 0 bytes in 0 blocks
+==25552==    still reachable: 136 bytes in 3 blocks
+==25552==         suppressed: 0 bytes in 0 blocks
+==25552== Rerun with --leak-check=full to see details of leaked memory
+==25552== 
+==25552== For counts of detected and suppressed errors, rerun with: -v
+==25552== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+./tscript: line 51: 25552 Segmentation fault      valgrind ./longtest $i
+Test - performing test 11 on your llistqueue.o
+==25553== Memcheck, a memory error detector
+==25553== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25553== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==25553== Command: ./longtest 11
+==25553== 
+==25553== Invalid read of size 8
+==25553==    at 0x109D46: freeList (llistqueue.c:35)
+==25553==    by 0x109DA4: q_destroy (llistqueue.c:43)
+==25553==    by 0x1097E4: main (longtest.c:145)
+==25553==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==25553== 
+==25553== 
+==25553== Process terminating with default action of signal 11 (SIGSEGV)
+==25553==  Access not within mapped region at address 0x0
+==25553==    at 0x109D46: freeList (llistqueue.c:35)
+==25553==    by 0x109DA4: q_destroy (llistqueue.c:43)
+==25553==    by 0x1097E4: main (longtest.c:145)
+==25553==  If you believe this happened as a result of a stack
+==25553==  overflow in your program's main thread (unlikely but
+==25553==  possible), you can try to increase the size of the
+==25553==  main thread stack using the --main-stacksize= flag.
+==25553==  The main thread stack size used in this run was 8388608.
+Test enqueue of multiple values ... success
+==25553== 
+==25553== HEAP SUMMARY:
+==25553==     in use at exit: 200 bytes in 7 blocks
+==25553==   total heap usage: 8 allocs, 1 frees, 4,296 bytes allocated
+==25553== 
+==25553== LEAK SUMMARY:
+==25553==    definitely lost: 0 bytes in 0 blocks
+==25553==    indirectly lost: 0 bytes in 0 blocks
+==25553==      possibly lost: 0 bytes in 0 blocks
+==25553==    still reachable: 200 bytes in 7 blocks
+==25553==         suppressed: 0 bytes in 0 blocks
+==25553== Rerun with --leak-check=full to see details of leaked memory
+==25553== 
+==25553== For counts of detected and suppressed errors, rerun with: -v
+==25553== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+./tscript: line 51: 25553 Segmentation fault      valgrind ./longtest $i
+Test - performing test 12 on your llistqueue.o
+==25554== Memcheck, a memory error detector
+==25554== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25554== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==25554== Command: ./longtest 12
+==25554== 
+Test toArray() ... success
+==25554== 
+==25554== HEAP SUMMARY:
+==25554==     in use at exit: 0 bytes in 0 blocks
+==25554==   total heap usage: 9 allocs, 9 frees, 4,336 bytes allocated
+==25554== 
+==25554== All heap blocks were freed -- no leaks are possible
+==25554== 
+==25554== For counts of detected and suppressed errors, rerun with: -v
+==25554== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+Test - performing test 13 on your llistqueue.o
+==25555== Memcheck, a memory error detector
+==25555== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25555== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==25555== Command: ./longtest 13
+==25555== 
+==25555== Invalid read of size 8
+==25555==    at 0x109D46: freeList (llistqueue.c:35)
+==25555==    by 0x109DA4: q_destroy (llistqueue.c:43)
+==25555==    by 0x109B02: main (longtest.c:198)
+==25555==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==25555== 
+==25555== 
+==25555== Process terminating with default action of signal 11 (SIGSEGV)
+==25555==  Access not within mapped region at address 0x0
+==25555==    at 0x109D46: freeList (llistqueue.c:35)
+==25555==    by 0x109DA4: q_destroy (llistqueue.c:43)
+==25555==    by 0x109B02: main (longtest.c:198)
+==25555==  If you believe this happened as a result of a stack
+==25555==  overflow in your program's main thread (unlikely but
+==25555==  possible), you can try to increase the size of the
+==25555==  main thread stack using the --main-stacksize= flag.
+==25555==  The main thread stack size used in this run was 8388608.
+Test itCreate() ... success
+==25555== 
+==25555== HEAP SUMMARY:
+==25555==     in use at exit: 200 bytes in 7 blocks
+==25555==   total heap usage: 11 allocs, 4 frees, 4,392 bytes allocated
+==25555== 
+==25555== LEAK SUMMARY:
+==25555==    definitely lost: 0 bytes in 0 blocks
+==25555==    indirectly lost: 0 bytes in 0 blocks
+==25555==      possibly lost: 0 bytes in 0 blocks
+==25555==    still reachable: 200 bytes in 7 blocks
+==25555==         suppressed: 0 bytes in 0 blocks
+==25555== Rerun with --leak-check=full to see details of leaked memory
+==25555== 
+==25555== For counts of detected and suppressed errors, rerun with: -v
+==25555== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+./tscript: line 51: 25555 Segmentation fault      valgrind ./longtest $i
+Test - performing test 14 on your llistqueue.o
+==25556== Memcheck, a memory error detector
+==25556== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25556== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==25556== Command: ./longtest 14
+==25556== 
+==25556== Invalid read of size 8
+==25556==    at 0x109D46: freeList (llistqueue.c:35)
+==25556==    by 0x109DA4: q_destroy (llistqueue.c:43)
+==25556==    by 0x109C9F: main (longtest.c:215)
+==25556==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==25556== 
+==25556== 
+==25556== Process terminating with default action of signal 11 (SIGSEGV)
+==25556==  Access not within mapped region at address 0x0
+==25556==    at 0x109D46: freeList (llistqueue.c:35)
+==25556==    by 0x109DA4: q_destroy (llistqueue.c:43)
+==25556==    by 0x109C9F: main (longtest.c:215)
+==25556==  If you believe this happened as a result of a stack
+==25556==  overflow in your program's main thread (unlikely but
+==25556==  possible), you can try to increase the size of the
+==25556==  main thread stack using the --main-stacksize= flag.
+==25556==  The main thread stack size used in this run was 8388608.
+Test sorting of queue elements 1 2 3 4 5 6 7 8 9 10 ... success
+==25556== 
+==25556== HEAP SUMMARY:
+==25556==     in use at exit: 280 bytes in 12 blocks
+==25556==   total heap usage: 15 allocs, 3 frees, 4,536 bytes allocated
+==25556== 
+==25556== LEAK SUMMARY:
+==25556==    definitely lost: 0 bytes in 0 blocks
+==25556==    indirectly lost: 0 bytes in 0 blocks
+==25556==      possibly lost: 0 bytes in 0 blocks
+==25556==    still reachable: 280 bytes in 12 blocks
+==25556==         suppressed: 0 bytes in 0 blocks
+==25556== Rerun with --leak-check=full to see details of leaked memory
+==25556== 
+==25556== For counts of detected and suppressed errors, rerun with: -v
+==25556== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+./tscript: line 51: 25556 Segmentation fault      valgrind ./longtest $i
+Linking stringtest to your llistqueue.o
+gcc -L/usr/local/lib -g -o stringtest stringtest.o llistqueue.o sort.o -lADTs
+Test - performing test 1 on your llistqueue.o
+==25561== Memcheck, a memory error detector
+==25561== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25561== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==25561== Command: ./stringtest 1
+==25561== 
+Test creation and destruction of a queue ... success
+==25561== 
+==25561== HEAP SUMMARY:
+==25561==     in use at exit: 0 bytes in 0 blocks
+==25561==   total heap usage: 3 allocs, 3 frees, 4,216 bytes allocated
+==25561== 
+==25561== All heap blocks were freed -- no leaks are possible
+==25561== 
+==25561== For counts of detected and suppressed errors, rerun with: -v
+==25561== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+Test - performing test 2 on your llistqueue.o
+==25562== Memcheck, a memory error detector
+==25562== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25562== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==25562== Command: ./stringtest 2
+==25562== 
+==25562== Invalid read of size 8
+==25562==    at 0x109E54: freeList (llistqueue.c:35)
+==25562==    by 0x109EB2: q_destroy (llistqueue.c:43)
+==25562==    by 0x109324: main (stringtest.c:39)
+==25562==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==25562== 
+==25562== 
+==25562== Process terminating with default action of signal 11 (SIGSEGV)
+==25562==  Access not within mapped region at address 0x0
+==25562==    at 0x109E54: freeList (llistqueue.c:35)
+==25562==    by 0x109EB2: q_destroy (llistqueue.c:43)
+==25562==    by 0x109324: main (stringtest.c:39)
+==25562==  If you believe this happened as a result of a stack
+==25562==  overflow in your program's main thread (unlikely but
+==25562==  possible), you can try to increase the size of the
+==25562==  main thread stack using the --main-stacksize= flag.
+==25562==  The main thread stack size used in this run was 8388608.
+Test enqueue of a single value ... success
+==25562== 
+==25562== HEAP SUMMARY:
+==25562==     in use at exit: 136 bytes in 3 blocks
+==25562==   total heap usage: 5 allocs, 2 frees, 4,235 bytes allocated
+==25562== 
+==25562== LEAK SUMMARY:
+==25562==    definitely lost: 0 bytes in 0 blocks
+==25562==    indirectly lost: 0 bytes in 0 blocks
+==25562==      possibly lost: 0 bytes in 0 blocks
+==25562==    still reachable: 136 bytes in 3 blocks
+==25562==         suppressed: 0 bytes in 0 blocks
+==25562== Rerun with --leak-check=full to see details of leaked memory
+==25562== 
+==25562== For counts of detected and suppressed errors, rerun with: -v
+==25562== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+./tscript: line 61: 25562 Segmentation fault      valgrind ./stringtest $i
+Test - performing test 3 on your llistqueue.o
+==25563== Memcheck, a memory error detector
+==25563== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25563== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==25563== Command: ./stringtest 3
+==25563== 
+Test isEmpty() on an empty queue ... success
+==25563== 
+==25563== HEAP SUMMARY:
+==25563==     in use at exit: 0 bytes in 0 blocks
+==25563==   total heap usage: 3 allocs, 3 frees, 4,216 bytes allocated
+==25563== 
+==25563== All heap blocks were freed -- no leaks are possible
+==25563== 
+==25563== For counts of detected and suppressed errors, rerun with: -v
+==25563== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+Test - performing test 4 on your llistqueue.o
+==25564== Memcheck, a memory error detector
+==25564== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25564== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==25564== Command: ./stringtest 4
+==25564== 
+==25564== Invalid read of size 8
+==25564==    at 0x109E54: freeList (llistqueue.c:35)
+==25564==    by 0x109EB2: q_destroy (llistqueue.c:43)
+==25564==    by 0x10941C: main (stringtest.c:60)
+==25564==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==25564== 
+==25564== 
+==25564== Process terminating with default action of signal 11 (SIGSEGV)
+==25564==  Access not within mapped region at address 0x0
+==25564==    at 0x109E54: freeList (llistqueue.c:35)
+==25564==    by 0x109EB2: q_destroy (llistqueue.c:43)
+==25564==    by 0x10941C: main (stringtest.c:60)
+==25564==  If you believe this happened as a result of a stack
+==25564==  overflow in your program's main thread (unlikely but
+==25564==  possible), you can try to increase the size of the
+==25564==  main thread stack using the --main-stacksize= flag.
+==25564==  The main thread stack size used in this run was 8388608.
+Test isEmpty() on a non-empty queue ... success
+==25564== 
+==25564== HEAP SUMMARY:
+==25564==     in use at exit: 136 bytes in 3 blocks
+==25564==   total heap usage: 5 allocs, 2 frees, 4,235 bytes allocated
+==25564== 
+==25564== LEAK SUMMARY:
+==25564==    definitely lost: 0 bytes in 0 blocks
+==25564==    indirectly lost: 0 bytes in 0 blocks
+==25564==      possibly lost: 0 bytes in 0 blocks
+==25564==    still reachable: 136 bytes in 3 blocks
+==25564==         suppressed: 0 bytes in 0 blocks
+==25564== Rerun with --leak-check=full to see details of leaked memory
+==25564== 
+==25564== For counts of detected and suppressed errors, rerun with: -v
+==25564== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+./tscript: line 61: 25564 Segmentation fault      valgrind ./stringtest $i
+Test - performing test 5 on your llistqueue.o
+==25565== Memcheck, a memory error detector
+==25565== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25565== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==25565== Command: ./stringtest 5
+==25565== 
+Test front() on an empty queue ... success
+==25565== 
+==25565== HEAP SUMMARY:
+==25565==     in use at exit: 0 bytes in 0 blocks
+==25565==   total heap usage: 3 allocs, 3 frees, 4,216 bytes allocated
+==25565== 
+==25565== All heap blocks were freed -- no leaks are possible
+==25565== 
+==25565== For counts of detected and suppressed errors, rerun with: -v
+==25565== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+Test - performing test 6 on your llistqueue.o
+==25566== Memcheck, a memory error detector
+==25566== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25566== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==25566== Command: ./stringtest 6
+==25566== 
+==25566== Invalid read of size 8
+==25566==    at 0x109E54: freeList (llistqueue.c:35)
+==25566==    by 0x109EB2: q_destroy (llistqueue.c:43)
+==25566==    by 0x109529: main (stringtest.c:83)
+==25566==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==25566== 
+==25566== 
+==25566== Process terminating with default action of signal 11 (SIGSEGV)
+==25566==  Access not within mapped region at address 0x0
+==25566==    at 0x109E54: freeList (llistqueue.c:35)
+==25566==    by 0x109EB2: q_destroy (llistqueue.c:43)
+==25566==    by 0x109529: main (stringtest.c:83)
+==25566==  If you believe this happened as a result of a stack
+==25566==  overflow in your program's main thread (unlikely but
+==25566==  possible), you can try to increase the size of the
+==25566==  main thread stack using the --main-stacksize= flag.
+==25566==  The main thread stack size used in this run was 8388608.
+Test front() on a non-empty queue ... success
+==25566== 
+==25566== HEAP SUMMARY:
+==25566==     in use at exit: 136 bytes in 3 blocks
+==25566==   total heap usage: 5 allocs, 2 frees, 4,235 bytes allocated
+==25566== 
+==25566== LEAK SUMMARY:
+==25566==    definitely lost: 0 bytes in 0 blocks
+==25566==    indirectly lost: 0 bytes in 0 blocks
+==25566==      possibly lost: 0 bytes in 0 blocks
+==25566==    still reachable: 136 bytes in 3 blocks
+==25566==         suppressed: 0 bytes in 0 blocks
+==25566== Rerun with --leak-check=full to see details of leaked memory
+==25566== 
+==25566== For counts of detected and suppressed errors, rerun with: -v
+==25566== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+./tscript: line 61: 25566 Segmentation fault      valgrind ./stringtest $i
+Test - performing test 7 on your llistqueue.o
+==25567== Memcheck, a memory error detector
+==25567== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25567== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==25567== Command: ./stringtest 7
+==25567== 
+Test dequeue() on an empty queue ... success
+==25567== 
+==25567== HEAP SUMMARY:
+==25567==     in use at exit: 0 bytes in 0 blocks
+==25567==   total heap usage: 3 allocs, 3 frees, 4,216 bytes allocated
+==25567== 
+==25567== All heap blocks were freed -- no leaks are possible
+==25567== 
+==25567== For counts of detected and suppressed errors, rerun with: -v
+==25567== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+Test - performing test 8 on your llistqueue.o
+==25568== Memcheck, a memory error detector
+==25568== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25568== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==25568== Command: ./stringtest 8
+==25568== 
+Test dequeue() on a non-empty queue ... success
+==25568== 
+==25568== HEAP SUMMARY:
+==25568==     in use at exit: 0 bytes in 0 blocks
+==25568==   total heap usage: 5 allocs, 5 frees, 4,235 bytes allocated
+==25568== 
+==25568== All heap blocks were freed -- no leaks are possible
+==25568== 
+==25568== For counts of detected and suppressed errors, rerun with: -v
+==25568== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+Test - performing test 9 on your llistqueue.o
+==25569== Memcheck, a memory error detector
+==25569== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25569== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==25569== Command: ./stringtest 9
+==25569== 
+Test size() on an empty queue ... success
+==25569== 
+==25569== HEAP SUMMARY:
+==25569==     in use at exit: 0 bytes in 0 blocks
+==25569==   total heap usage: 3 allocs, 3 frees, 4,216 bytes allocated
+==25569== 
+==25569== All heap blocks were freed -- no leaks are possible
+==25569== 
+==25569== For counts of detected and suppressed errors, rerun with: -v
+==25569== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+Test - performing test 10 on your llistqueue.o
+==25570== Memcheck, a memory error detector
+==25570== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25570== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==25570== Command: ./stringtest 10
+==25570== 
+==25570== Invalid read of size 8
+==25570==    at 0x109E54: freeList (llistqueue.c:35)
+==25570==    by 0x109EB2: q_destroy (llistqueue.c:43)
+==25570==    by 0x109753: main (stringtest.c:128)
+==25570==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==25570== 
+==25570== 
+==25570== Process terminating with default action of signal 11 (SIGSEGV)
+==25570==  Access not within mapped region at address 0x0
+==25570==    at 0x109E54: freeList (llistqueue.c:35)
+==25570==    by 0x109EB2: q_destroy (llistqueue.c:43)
+==25570==    by 0x109753: main (stringtest.c:128)
+==25570==  If you believe this happened as a result of a stack
+==25570==  overflow in your program's main thread (unlikely but
+==25570==  possible), you can try to increase the size of the
+==25570==  main thread stack using the --main-stacksize= flag.
+==25570==  The main thread stack size used in this run was 8388608.
+Test size() on a non-empty queue ... success
+==25570== 
+==25570== HEAP SUMMARY:
+==25570==     in use at exit: 136 bytes in 3 blocks
+==25570==   total heap usage: 5 allocs, 2 frees, 4,235 bytes allocated
+==25570== 
+==25570== LEAK SUMMARY:
+==25570==    definitely lost: 0 bytes in 0 blocks
+==25570==    indirectly lost: 0 bytes in 0 blocks
+==25570==      possibly lost: 0 bytes in 0 blocks
+==25570==    still reachable: 136 bytes in 3 blocks
+==25570==         suppressed: 0 bytes in 0 blocks
+==25570== Rerun with --leak-check=full to see details of leaked memory
+==25570== 
+==25570== For counts of detected and suppressed errors, rerun with: -v
+==25570== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+./tscript: line 61: 25570 Segmentation fault      valgrind ./stringtest $i
+Test - performing test 11 on your llistqueue.o
+==25571== Memcheck, a memory error detector
+==25571== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25571== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==25571== Command: ./stringtest 11
+==25571== 
+==25571== Invalid read of size 8
+==25571==    at 0x109E54: freeList (llistqueue.c:35)
+==25571==    by 0x109EB2: q_destroy (llistqueue.c:43)
+==25571==    by 0x109875: main (stringtest.c:146)
+==25571==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==25571== 
+==25571== 
+==25571== Process terminating with default action of signal 11 (SIGSEGV)
+==25571==  Access not within mapped region at address 0x0
+==25571==    at 0x109E54: freeList (llistqueue.c:35)
+==25571==    by 0x109EB2: q_destroy (llistqueue.c:43)
+==25571==    by 0x109875: main (stringtest.c:146)
+==25571==  If you believe this happened as a result of a stack
+==25571==  overflow in your program's main thread (unlikely but
+==25571==  possible), you can try to increase the size of the
+==25571==  main thread stack using the --main-stacksize= flag.
+==25571==  The main thread stack size used in this run was 8388608.
+Test enqueue of multiple values ... success
+==25571== 
+==25571== HEAP SUMMARY:
+==25571==     in use at exit: 200 bytes in 7 blocks
+==25571==   total heap usage: 13 allocs, 6 frees, 4,306 bytes allocated
+==25571== 
+==25571== LEAK SUMMARY:
+==25571==    definitely lost: 0 bytes in 0 blocks
+==25571==    indirectly lost: 0 bytes in 0 blocks
+==25571==      possibly lost: 0 bytes in 0 blocks
+==25571==    still reachable: 200 bytes in 7 blocks
+==25571==         suppressed: 0 bytes in 0 blocks
+==25571== Rerun with --leak-check=full to see details of leaked memory
+==25571== 
+==25571== For counts of detected and suppressed errors, rerun with: -v
+==25571== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+./tscript: line 61: 25571 Segmentation fault      valgrind ./stringtest $i
+Test - performing test 12 on your llistqueue.o
+==25572== Memcheck, a memory error detector
+==25572== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25572== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==25572== Command: ./stringtest 12
+==25572== 
+Test toArray() ... success
+==25572== 
+==25572== HEAP SUMMARY:
+==25572==     in use at exit: 0 bytes in 0 blocks
+==25572==   total heap usage: 14 allocs, 14 frees, 4,346 bytes allocated
+==25572== 
+==25572== All heap blocks were freed -- no leaks are possible
+==25572== 
+==25572== For counts of detected and suppressed errors, rerun with: -v
+==25572== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+Test - performing test 13 on your llistqueue.o
+==25573== Memcheck, a memory error detector
+==25573== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25573== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==25573== Command: ./stringtest 13
+==25573== 
+==25573== Invalid read of size 8
+==25573==    at 0x109E54: freeList (llistqueue.c:35)
+==25573==    by 0x109EB2: q_destroy (llistqueue.c:43)
+==25573==    by 0x109BE2: main (stringtest.c:201)
+==25573==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==25573== 
+==25573== 
+==25573== Process terminating with default action of signal 11 (SIGSEGV)
+==25573==  Access not within mapped region at address 0x0
+==25573==    at 0x109E54: freeList (llistqueue.c:35)
+==25573==    by 0x109EB2: q_destroy (llistqueue.c:43)
+==25573==    by 0x109BE2: main (stringtest.c:201)
+==25573==  If you believe this happened as a result of a stack
+==25573==  overflow in your program's main thread (unlikely but
+==25573==  possible), you can try to increase the size of the
+==25573==  main thread stack using the --main-stacksize= flag.
+==25573==  The main thread stack size used in this run was 8388608.
+Test itCreate() ... success
+==25573== 
+==25573== HEAP SUMMARY:
+==25573==     in use at exit: 200 bytes in 7 blocks
+==25573==   total heap usage: 16 allocs, 9 frees, 4,402 bytes allocated
+==25573== 
+==25573== LEAK SUMMARY:
+==25573==    definitely lost: 0 bytes in 0 blocks
+==25573==    indirectly lost: 0 bytes in 0 blocks
+==25573==      possibly lost: 0 bytes in 0 blocks
+==25573==    still reachable: 200 bytes in 7 blocks
+==25573==         suppressed: 0 bytes in 0 blocks
+==25573== Rerun with --leak-check=full to see details of leaked memory
+==25573== 
+==25573== For counts of detected and suppressed errors, rerun with: -v
+==25573== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+./tscript: line 61: 25573 Segmentation fault      valgrind ./stringtest $i
+Test - performing test 14 on your llistqueue.o
+==25574== Memcheck, a memory error detector
+==25574== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25574== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==25574== Command: ./stringtest 14
+==25574== 
+==25574== Invalid read of size 8
+==25574==    at 0x109E54: freeList (llistqueue.c:35)
+==25574==    by 0x109EB2: q_destroy (llistqueue.c:43)
+==25574==    by 0x109DA5: main (stringtest.c:219)
+==25574==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==25574== 
+==25574== 
+==25574== Process terminating with default action of signal 11 (SIGSEGV)
+==25574==  Access not within mapped region at address 0x0
+==25574==    at 0x109E54: freeList (llistqueue.c:35)
+==25574==    by 0x109EB2: q_destroy (llistqueue.c:43)
+==25574==    by 0x109DA5: main (stringtest.c:219)
+==25574==  If you believe this happened as a result of a stack
+==25574==  overflow in your program's main thread (unlikely but
+==25574==  possible), you can try to increase the size of the
+==25574==  main thread stack using the --main-stacksize= flag.
+==25574==  The main thread stack size used in this run was 8388608.
+Test sorting queue elements  1  2  3  4  5  6  7  8  9 10 ... success
+==25574== 
+==25574== HEAP SUMMARY:
+==25574==     in use at exit: 280 bytes in 12 blocks
+==25574==   total heap usage: 25 allocs, 13 frees, 4,566 bytes allocated
+==25574== 
+==25574== LEAK SUMMARY:
+==25574==    definitely lost: 0 bytes in 0 blocks
+==25574==    indirectly lost: 0 bytes in 0 blocks
+==25574==      possibly lost: 0 bytes in 0 blocks
+==25574==    still reachable: 280 bytes in 12 blocks
+==25574==         suppressed: 0 bytes in 0 blocks
+==25574== Rerun with --leak-check=full to see details of leaked memory
+==25574== 
+==25574== For counts of detected and suppressed errors, rerun with: -v
+==25574== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+./tscript: line 61: 25574 Segmentation fault      valgrind ./stringtest $i

@@ -1,0 +1,7 @@
+Name: Isabella Cortez
+
+Duck ID: icortez6
+
+State of Submission: Everything works and everything compiles! I tested it with valgrind and it works! 
+
+Classmates that Helped: Avery helped me understand the logic of the different methods in llistqueue. 
