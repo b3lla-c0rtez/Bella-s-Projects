@@ -1,0 +1,1 @@
+I have most of strheap.c, however it is not thread safe. I understand if I can't get any points due to it not being thread safe, however this is what I have as of now. Again, all of it is mostly done except for it being thread safe. This is my own work, however Andrew Teske helped me get this far. He explained the base pseudocode. 
