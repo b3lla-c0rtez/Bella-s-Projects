@@ -1,0 +1,3 @@
+Andrew Teske and Ash Davis helped me with dtsv1 and dtsv2. Lab 7 also helped me get parts 1 and 2 done. The other part that helped me get dtsv2 done was the toyfile. It helped me understand toyfile and how to grab the first word of the string. I have attached toyfile.c as one of the files since that's what helped me understand part 2 well. Both of my parts 1 and 2, I have tested and they work correctly.
+
+I have not done parts 3 or 4. If I do them, I will turn them in late and update on if they work or not. 

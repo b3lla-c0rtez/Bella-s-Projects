@@ -1,0 +1,41 @@
+Starting examination of submission by cortezisabella
+cc -W -Wall -pedantic -I/usr/local/include   -c -o dtsv1.o dtsv1.c
+gcc -o dtsv1 dtsv1.o -lBXP -lpthread -lADTs
+cc -W -Wall -pedantic -I/usr/local/include   -c -o dtsv2.o dtsv2.c
+gcc -o dtsv2 dtsv2.o -lBXP -lpthread -lADTs
+make: *** No rule to make target 'echoclient.c', needed by 'echoclient.o'.  Stop.
+TESTING dtsv1
+Start dtsv1 in cortezisabella; hit return when ready
+22 lines Echo'd in 0.000 seconds, 0.000ms/call
+Stop dtsv1 in cortezisabella; hit return when ready
+===== LOG file from dtsv1
+=====
+TESTING dtsv2
+Start dtsv2 in cortezisabella; hit return when ready
+../0test/echoclient: server returned ERR - Bogus
+../0test/echoclient: server returned ERR - OneShot
+../0test/echoclient: server returned ERR - OneShot|clid
+../0test/echoclient: server returned ERR - OneShot|clid|secs
+../0test/echoclient: server returned ERR - OneShot|clid|secs|usecs
+../0test/echoclient: server returned ERR - OneShot|clid|secs|usecs|host
+../0test/echoclient: server returned ERR - OneShot|clid|secs|usecs|host|service
+OneShot|clid|secs|usecs|host|service|port
+../0test/echoclient: server returned ERR - OneShot|clid|secs|usecs|host|service|port|extra
+../0test/echoclient: server returned ERR - Repeat
+../0test/echoclient: server returned ERR - Repeat|clid
+../0test/echoclient: server returned ERR - Repeat|clid|secs
+../0test/echoclient: server returned ERR - Repeat|clid|secs|usecs
+../0test/echoclient: server returned ERR - Repeat|clid|secs|usecs|msecs
+../0test/echoclient: server returned ERR - Repeat|clid|secs|usecs|msecs|repeats
+../0test/echoclient: server returned ERR - Repeat|clid|secs|usecs|msecs|repeats|host
+../0test/echoclient: server returned ERR - Repeat|clid|secs|usecs|msecs|repeats|host|service
+Repeat|clid|secs|usecs|msecs|repeats|host|service|port
+../0test/echoclient: server returned ERR - Repeat|clid|secs|usecs|msecs|repeats|host|service|port|extra
+../0test/echoclient: server returned ERR - Cancel
+Cancel|svid
+../0test/echoclient: server returned ERR - Cancel|svid|extra
+22 lines Echo'd in 0.001 seconds, 0.045ms/call
+Stop dtsv2 in cortezisabella; hit return when ready
+===== LOG file from dtsv2
+=====
+dtsv3 did not build successfully, terminating test
