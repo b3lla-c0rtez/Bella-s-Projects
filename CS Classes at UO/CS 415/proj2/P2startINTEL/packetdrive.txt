@@ -1,0 +1,20 @@
+FreePacketDescriptorStore *fpds_pointer;
+
+send {
+	while () {
+		get pd from sending buffer 
+		hand off packet nd for sending
+		deposit into fpds
+	}
+}
+
+rec {
+	while () {
+		take from fpds
+		intialize packet descriptor
+		register with network device
+		await incoming package
+		find pid with getPID
+		store pd in receive buffer
+	}
+}

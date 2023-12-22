@@ -1,0 +1,57 @@
+process env. variable
+char *quantum_env = getenv("USPS_QUANTUM_MSEC");
+int qmsec = -1;
+if (quantum_env != NULL) {
+	qmsec = p1atoi(quantum_env)
+} 
+
+process command line arguments
+if (argc <= 1) {
+	EXIT_FAILURE
+} else if (argc > 4) {
+	EXIT_FAILURE
+}
+
+if (argc == 2) {
+	if (msec == -1) {
+		EXIT_FAILURE
+	} else {
+		// handle workload file
+	}
+} else if (argc == 3) {
+	if ((opt = getopt(argc, argv, "q:")) != -1) {
+		qmsec = p1atoi(optarg)
+		fd = STDIN_FILENO;
+	} else {
+		EXIT_FAILURE
+	}
+} else if (argc == 4) {
+	if ((opt = getopt(argc, argv, "q:")) != -1) {
+		qmsec = p1atoi(optarg)
+	} else {
+		EXIT_FAILURE
+	}
+	// handle workload file
+
+}
+
+process file
+while (p1getline(fd, buffer, SIZE) != -1) {
+	char progName[SIZE]
+	int i = p1getword(buffer, 0, progName)
+
+	// char *args[] = {"./cpubound" , "-s", "5", NULL};
+
+}
+
+for i to num_programs
+	fork child process
+	if child process 
+		execvp (turns program into instance of program in command)
+	if child failed fork
+		print error
+	if parent process
+		do nothing
+parent waits until all children are terminated
+parent terminates gracefully after all children are terminated
+

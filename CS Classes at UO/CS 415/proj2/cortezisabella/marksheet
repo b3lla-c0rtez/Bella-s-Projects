@@ -1,0 +1,25 @@
+Student name: cortezisabella
+Raw score: 88
+Penalty(%): 0
+Final score: 88
+
+DESIGN AND REPORT
+ 10 Report honestly describes the state of the submission
+ 16 Design diagram showing dataflows and interactions in your system
+  7 Appropriate sizing of bounded buffers/other data structures
+  0 Explanation of blocking behavior matching the requirements
+Implementation
+  6 Appropriate synchronization
+  4 Appropriate number and initialization of threads
+  4 Appropriate return of PDs (no leaks)
+  6 Low complexity search for PD associated with the redeeming thread
+  6 Appropriate initialization of data structures
+  4 Sufficient commentary in the code
+ 15 Working implementation
+ 10 Excellent commentary
+
+  0 additional deductions described in comments below
+
+Comments
+* missed packets; -5 in working implementation
+* no explanation of blocking behavior

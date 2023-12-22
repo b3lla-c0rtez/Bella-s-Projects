@@ -1,0 +1,33 @@
+cc -W -Wall -g   -c -o packetdriver.o packetdriver.c
+gcc -o mydemo testharness.o packetdriver.o ./libTH.a -lpthread
+===== Running mydemo for 1 minute to collect log
+===== Testing for packetdescriptor leaks
+out|free|total =  00|36|36
+out|free|total =  18|18|36
+out|free|total =  19|17|36
+out|free|total =  19|17|36
+out|free|total =  22|14|36
+out|free|total =  20|16|36
+out|free|total =  18|18|36
+===== Testing for parallel calls to send a packet
+===== Testing for missing PD for receive
+[Device> Error: Dropping data. No receiver packet.
+[Device> Error: Dropping data. No receiver packet.
+[Device> Error: Dropping data. No receiver packet.
+[Device> Error: Dropping data. No receiver packet.
+[Device> Error: Dropping data. No receiver packet.
+[Device> Error: Dropping data. No receiver packet.
+[Device> Error: Dropping data. No receiver packet.
+[Device> Error: Dropping data. No receiver packet.
+===== Testing for receive PD uninitialized
+===== Testing for thread awaiting packet
+===== Testing for multiple PD registration
+===== Testing for multiple threads awaiting the next packet
+===== Testing for awaiting a packet with registering a PD
+===== Write queueing and performance statistics
+  Queued writes: successes/103, failures/77
+  Writes: successes/90, failures/13
+===== Read queueing and performance statistics
+  packets rcvd by device: 159
+  packets retrieved by appl: 147
+  packets lost due to PD congestion: 12
