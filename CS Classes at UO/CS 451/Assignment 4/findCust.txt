@@ -1,0 +1,38 @@
+<html>
+<head>
+       <title>PHP-MySQL Stores7 Program</title>
+</head>
+
+<body bgcolor="pink">
+
+<h3>Stores7 Database MySQL & PHP Connection Website</h3>
+
+
+
+<hr>
+
+<p>
+Please type a manufacturer name down below to see the customer names and orders for that company. The manufacturer names are: <b>Anza</b>, <b>Hero</b>, <b>Husky</b>, <b>Karsten</b>, <b>Nikolus</b>, <b>Norge</b>, <b>ProCycle</b>, <b>Shimara</b>, <b>Smith</b>
+<form action="findCustManufacturer.php" method="POST">
+<input type="text" name="manufact"> <br>
+<input type="submit" value="submit">
+<input type="reset" value="erase">
+</form>
+
+
+<hr>
+
+<p>
+<a href="findCust.txt" >Contents</a>
+of this page.
+
+<p>
+<a href="findCustManufacturer.txt" >Contents</a>
+of the PHP page that gets called.
+(And the <a href="connectionData.txt" >connection data</a>,
+kept separately for security reasons.)
+
+
+
+</body>
+</html>

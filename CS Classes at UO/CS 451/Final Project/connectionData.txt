@@ -1,0 +1,9 @@
+<?php
+
+$server = "ix.cs.uoregon.edu";
+$dbname ="DnD_Database";
+$user = "guest";
+$pass = "0306";
+$port="3791";
+
+?>

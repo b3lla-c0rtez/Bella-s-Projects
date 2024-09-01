@@ -1,0 +1,104 @@
+Isabella Cortez
+Prof. Wilson
+CS 451
+04/19/2024
+
+IX Dev Info:
+1.) Login Name: icortez6
+
+2.) Hostname: ix.cs.uoregon.edu 
+
+3.) Port Number: 3791
+
+4.) Guest Password: 0306
+
+
+Queries:
+
+--stores7 database:
+---------------------
+query 1:
+SELECT fname, lname, company
+FROM customer
+WHERE company LIKE '% sports%' AND company NOT LIKE '%sports %'
+
+---------------------
+query 2:
+SELECT DISTINCT CONCAT(c.fname," " , c.lname) AS customer_name, c.city, c.state, s.description, o.order_date
+FROM customer c
+JOIN orders o ON c.customer_num = o.customer_num
+JOIN items i ON o.order_num = i.order_num
+JOIN stock s ON i.stock_num = s.stock_num
+JOIN manufact m ON s.manu_code = m.manu_code
+JOIN catalog cat ON cat.stock_num = s.stock_num AND cat.manu_code = s.manu_code AND cat.manu_code = i.manu_code AND cat.stock_num = i.stock_num
+WHERE o.order_date BETWEEN '1998-05-22' AND '1998-06-25' AND m.manu_name = 'HUSKY' 
+ORDER BY customer_name AND o.order_date
+
+---------------------
+query 3:
+SELECT s.sname, c.fname, c.lname
+FROM state s
+LEFT JOIN customer c ON s.code = c.state
+ORDER BY s.sname, c.lname
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+--company database:
+---------------------
+query 4:
+SELECT fname, lname
+FROM employee e
+JOIN works_on w ON w.essn = e.ssn
+JOIN project p ON w.pno = p.pnumber
+WHERE p.pname LIKE 'Product%' AND hours >= 8 AND hours <= 22
+GROUP BY fname, lname
+
+---------------------
+query 5:
+SELECT d.dname, dep.dependent_name
+FROM dependent dep
+JOIN employee e ON e.ssn = dep.essn
+RIGHT JOIN department d ON d.dnumber = e.dno
+ORDER BY d.dname
+
+---------------------
+query 6:
+SELECT CONCAT(e1.fname,' ', e1.lname) AS supervisor, CONCAT(e2.fname,' ', e2.lname) AS spervisee
+FROM employee e1
+JOIN employee e2 ON e1.ssn = e2.superssn
+JOIN department d ON e1.dno = d.dnumber AND e2.dno = d.dnumber
+WHERE dname = 'Administration'
+ORDER BY e1.fname
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+--sakila database:
+---------------------
+query 7:
+SELECT CONCAT(c.first_name,' ' , c.last_name) AS customer_name, f.title, r.rental_date
+FROM customer c
+JOIN rental r ON c.customer_id = r.customer_id
+JOIN inventory i ON r.inventory_id = i.inventory_id
+JOIN film f ON f.film_id = i.film_id
+WHERE MONTH(r.rental_date) = 7 AND YEAR(r.rental_date) = 2005
+ORDER BY f.title, c.last_name, r.rental_date
+
+---------------------
+query 8:
+SELECT c.first_name, c.last_name, c.email, p.amount
+FROM customer c
+JOIN payment p ON c.customer_id = p.customer_id
+JOIN rental r ON p.rental_id = r.rental_id
+JOIN inventory i ON r.inventory_id = i.inventory_id
+JOIN film f ON f.film_id = i.film_id
+JOIN film_category fc ON f.film_id = fc.film_id
+JOIN category cat ON cat.category_id = fc.category_id
+WHERE cat.name = 'Drama' AND p.amount > 6
+ORDER BY c.last_name
+
+---------------------
+query 9:
+SELECT COUNT(p.rental_id) 
+FROM payment p
+JOIN rental r ON p.rental_id = r.rental_id 
+JOIN inventory i ON r.inventory_id = i.inventory_id
+JOIN film f ON f.film_id = i.film_id
+WHERE f.title LIKE '%MOTHER%'

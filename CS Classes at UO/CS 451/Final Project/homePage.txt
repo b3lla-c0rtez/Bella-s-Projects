@@ -1,0 +1,44 @@
+<html>
+<head>
+       <title>PHP-MySQL D&D Database Program</title>
+</head>
+
+<body bgcolor="pink">
+
+<h3>D&D Database MySQL & PHP Connection Website</h3>
+
+
+
+<hr>
+
+<p>
+Please click on one of the links below: 
+<hr>
+<p>Homebrew Information:</p>
+<br>
+<a href="https://ix.cs.uoregon.edu/~icortez6/finalProj/homebrew/npcHome.html">NPC Home Page</a>
+<br>
+<a href="https://ix.cs.uoregon.edu/~icortez6/finalProj/homebrew/monsterHome.html">Monster Home Page</a>
+<br>
+<a href="https://ix.cs.uoregon.edu/~icortez6/finalProj/homebrew/hiHome.html">Homebrew Items Home Page</a>
+<br>
+
+<hr>
+<p>Non-Homebrew Applications:</p>
+<br>
+<a href="https://ix.cs.uoregon.edu/~sanichin/finalProj/baseDND/classHome.html">Class Selector</a>
+<br>
+<a href="https://ix.cs.uoregon.edu/~sanichin/finalProj/baseDND/character.html">Character Creator</a>
+<hr>
+<p>
+<a href="homePage.txt" >Contents</a>
+of this page.
+
+<p>
+(the <a href="connectionData.txt" >connection data</a>,
+kept separately for security reasons.)
+
+
+
+</body>
+</html>

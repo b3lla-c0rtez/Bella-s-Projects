@@ -1,0 +1,123 @@
+Isabella Cortez
+Prof. Wilson
+CS 451
+05/06/2024
+
+IX Dev Info:
+1.) Login Name: icortez6
+
+2.) Hostname: ix.cs.uoregon.edu 
+
+3.) Port Number: 3791
+
+4.) Guest Password: 0306
+
+---------------------
+Queries:
+
+---------------------
+--stores7 database:
+---------------------
+query 1:
+
+SELECT c.fname, c.lname, c.city, s.sname, MD5(c.phone)
+FROM customer c
+JOIN state s ON s.code = c.state
+WHERE s.sname LIKE 'Florida' OR s.sname LIKE 'Oklahoma' OR s.sname LIKE 'ARIZONA'
+ORDER BY s.sname LIKE 'OKLAHOMA', s.sname LIKE 'ARIZONA', s.sname LIKE 'FLORIDA'
+
+---------------------
+query 2:
+
+SELECT c.customer_num, c.fname, c.lname, c.city, c.state, CONCAT('$', IFNULL(price, 0)) AS totKarsten
+FROM customer c
+LEFT JOIN 
+(SELECT o.customer_num, SUM(i.total_price) AS price
+FROM orders o
+JOIN items i ON o.order_num = i.order_num
+JOIN stock s USING (stock_num, manu_code)
+JOIN manufact m ON m.manu_code = s.manu_code 
+WHERE m.manu_name = 'Karsten'
+GROUP BY o.customer_num
+) AS total ON c.customer_num = total.customer_num
+GROUP BY c.customer_num, c.fname, c.lname, c.city, c.state
+ORDER BY c.lname
+
+---------------------
+query 3:
+
+SELECT c.fname, c.lname, SUM(i.cost + o.ship_charge) AS totalSpent
+FROM orders o
+JOIN (
+SELECT SUM(total_price) as cost, order_num
+FROM items
+GROUP BY order_num
+) i ON o.order_num = i.order_num
+JOIN customer c ON o.customer_num = c.customer_num
+GROUP BY c.fname, c.lname
+ORDER BY c.lname
+
+---------------------
+query 4:
+
+SELECT stock_num, manu_code, description, unit_price, unit, unit_descr
+FROM stock
+WHERE (stock_num, manu_code) NOT IN (SELECT stock_num, manu_code FROM items)
+
+---------------------
+query 5:
+
+SELECT order_num, customer_num, ship_weight
+FROM orders
+WHERE ABS(ship_weight-(SELECT AVG(ship_weight) FROM orders)) <= ALL(SELECT ABS(ship_weight - (SELECT AVG(ship_weight) FROM orders)) FROM orders)
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+--company database:
+---------------------
+query 7:
+
+SELECT d.dname, p.pname, p.plocation
+FROM project p
+JOIN department d ON p.dnum = d.dnumber
+LEFT JOIN dept_locations dl ON p.plocation = dl.dlocation AND p.dnum = dl.dnumber
+WHERE dl.dnumber IS NULL
+
+---------------------
+query 8:
+
+SELECT p.pname, SUM(w.hours) AS totHours
+FROM project p 
+JOIN works_on w ON p.pnumber = w.pno
+GROUP BY p.pname
+HAVING SUM(w.hours) = (SELECT MAX(hours)
+FROM (SELECT pno, SUM(hours) AS hours
+FROM works_on
+GROUP BY pno) AS max_hours)
+
+---------------------
+query 9:
+
+SELECT fname, lname, p.pname
+FROM employee 
+JOIN works_on w ON employee.ssn = w.essn
+JOIN project p ON w.pno = p.pnumber
+JOIN (SELECT pno, SUM(hours) AS tothours
+FROM works_on
+GROUP BY pno
+ORDER BY tothours DESC
+LIMIT 3) AS top3 ON p.pnumber=top3.pno
+ORDER BY lname, p.pname
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+--sakila database:
+---------------------
+query 10:
+
+SELECT title, CONCAT('$',SUM(amount)) AS amtspent
+FROM film f
+LEFT JOIN inventory i ON f.film_id = i.film_id
+LEFT JOIN rental r ON i.inventory_id = r.inventory_id
+LEFT JOIN payment p ON r.rental_id = p.rental_id
+WHERE f.title LIKE 'I%'
+GROUP BY f.title
+
