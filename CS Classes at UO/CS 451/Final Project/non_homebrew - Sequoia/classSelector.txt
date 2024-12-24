@@ -1,0 +1,36 @@
+<html><head>
+    <title>PHP-MySQL D&D Database Program</title>
+</head>
+<body bgcolor="lavender">
+    <h3>Recommend me a synergistic race for my D&amp;D class (please choose a class)</h3>
+    <hr>
+    <p>Please select a D&D base class to see recommended races:</p>
+    <form action="classFilter.php" method="POST">
+        <select name="class" required="">
+            <option value="Barbarian">Barbarian</option>
+            <option value="Bard">Bard</option>
+            <option value="Cleric">Cleric</option>
+            <option value="Druid">Druid</option>
+            <option value="Fighter">Fighter</option>
+            <option value="Monk">Monk</option>
+            <option value="Paladin">Paladin</option>
+            <option value="Ranger">Ranger</option>
+            <option value="Rogue">Rogue</option>
+            <option value="Sorcerer">Sorcerer</option>
+            <option value="Warlock">Warlock</option>
+            <option value="Wizard">Wizard</option>
+            <option value="Artificer">Artificer</option>
+            <option value="Blood Hunter">Blood Hunter</option>
+        </select>
+        <br><br>
+        <input type="submit" value="Submit">
+        <input type="reset" value="Erase">
+    </form>
+    <hr>
+    <p><a href="classHome.txt">Contents</a> of this page.</p>
+    <hr>
+    <p><a href="https://ix.cs.uoregon.edu/~icortez6/finalProj/homePage.html">Home Page</a></p>
+
+
+
+</body></html>

@@ -1,0 +1,134 @@
+<html><head>
+    <title>Base D&D Character Creator</title>
+</head>
+<body bgcolor="lavender">
+    <h3>Base D&D Character Creator</h3>
+    <hr>
+    <p>
+        Create your character by selecting a class and race:
+    </p>
+    <form action="characterFilter.php" method="POST">
+        <label for="character_name">Character Name:</label><br>
+        <input type="text" name="character_name" required=""><br><br>
+        
+        <label for="class">Class:</label><br>
+        <select name="class" required="">
+            <option value="Barbarian">Barbarian</option>
+            <option value="Bard">Bard</option>
+            <option value="Cleric">Cleric</option>
+            <option value="Druid">Druid</option>
+            <option value="Fighter">Fighter</option>
+            <option value="Monk">Monk</option>
+            <option value="Paladin">Paladin</option>
+            <option value="Ranger">Ranger</option>
+            <option value="Rogue">Rogue</option>
+            <option value="Sorcerer">Sorcerer</option>
+            <option value="Warlock">Warlock</option>
+            <option value="Wizard">Wizard</option>
+            <option value="Artificer">Artificer</option>
+            <option value="Blood Hunter">Blood Hunter</option>
+        </select><br><br>
+        
+        <label for="race">Race:</label><br>
+        <select name="race" required="">
+            <option value="Dragonborn">Dragonborn</option>
+            <option value="Dwarf">Dwarf</option>
+            <option value="Elf">Elf</option>
+            <option value="Gnome">Gnome</option>
+            <option value="Half-Elf">Half-Elf</option>
+            <option value="Half-Orc">Half-Orc</option>
+            <option value="Halfling">Halfling</option>
+            <option value="Human">Human</option>
+            <option value="Tiefling">Tiefling</option>
+            <option value="Aarakocra">Aarakocra</option>
+            <option value="Genasi">Genasi</option>
+            <option value="Goliath">Goliath</option>
+            <option value="Aasimar">Aasimar</option>
+            <option value="Bugbear">Bugbear</option>
+            <option value="Firbolg">Firbolg</option>
+            <option value="Goblin">Goblin</option>
+            <option value="Hobgoblin">Hobgoblin</option>
+            <option value="Kenku">Kenku</option>
+            <option value="Kobold">Kobold</option>
+            <option value="Lizardfolk">Lizardfolk</option>
+            <option value="Orc">Orc</option>
+            <option value="Tabaxi">Tabaxi</option>
+            <option value="Triton">Triton</option>
+            <option value="Yuan-ti Pureblood">Yuan-ti Pureblood</option>
+        </select><br><br>
+
+        <label for="weapon">Weapon:</label><br>
+        <select name="weapon" required="">
+            <option value="Club">Club</option>
+            <option value="Dagger">Dagger</option>
+            <option value="Greatclub">Greatclub</option>
+            <option value="Handaxe">Handaxe</option>
+            <option value="Javelin">Javelin</option>
+            <option value="Light Hammer">Light Hammer</option>
+            <option value="Mace">Mace</option>
+            <option value="Quarterstaff">Quarterstaff</option>
+            <option value="Sickle">Sickle</option>
+            <option value="Spear">Spear</option>
+            <option value="Crossbow, Light">Crossbow, Light</option>
+            <option value="Dart">Dart</option>
+            <option value="Shortbow">Shortbow</option>
+            <option value="Sling">Sling</option>
+            <option value="Battleaxe">Battleaxe</option>
+            <option value="Flail">Flail</option>
+            <option value="Glaive">Glaive</option>
+            <option value="Greataxe">Greataxe</option>
+            <option value="Greatsword">Greatsword</option>
+            <option value="Halberd">Halberd</option>
+        </select><br><br>
+
+        <label for="armor">Armor:</label><br>
+        <select name="armor" required="">
+            <option value="Padded Armor">Padded Armor</option>
+            <option value="Leather Armor">Leather Armor</option>
+            <option value="Studded Leather Armor">Studded Leather Armor</option>
+            <option value="Hide Armor">Hide Armor</option>
+            <option value="Chain Shirt">Chain Shirt</option>
+            <option value="Scale Mail">Scale Mail</option>
+            <option value="Breastplate">Breastplate</option>
+            <option value="Half Plate Armor">Half Plate Armor</option>
+            <option value="Ring Mail">Ring Mail</option>
+            <option value="Chain Mail">Chain Mail</option>
+        </select><br><br>
+
+        <label for="spell">Spell:</label><br>
+        <select name="spell" required="">
+            <option value="Fireball">Fireball</option>
+            <option value="Magic Missile">Magic Missile</option>
+            <option value="Shield">Shield</option>
+            <option value="Mage Armor">Mage Armor</option>
+            <option value="Cure Wounds">Cure Wounds</option>
+            <option value="Bless">Bless</option>
+            <option value="Detect Magic">Detect Magic</option>
+            <option value="Dispel Magic">Dispel Magic</option>
+            <option value="Lightning Bolt">Lightning Bolt</option>
+            <option value="Fly">Fly</option>
+            <option value="Invisibility">Invisibility</option>
+            <option value="Polymorph">Polymorph</option>
+            <option value="Counterspell">Counterspell</option>
+            <option value="Healing Word">Healing Word</option>
+            <option value="Silence">Silence</option>
+        </select><br><br>
+
+        <input type="submit" value="Create Character">
+        <input type="reset" value="Reset">
+    </form>
+    <hr>
+    <p>
+        <a href="character.txt">Contents</a> of this page.
+    </p>
+    <p>
+        <a href="characterFilter.txt">Contents</a> of the PHP page that gets called.
+    </p>
+    <hr>
+    <p>
+        <a href="https://ix.cs.uoregon.edu/~icortez6/finalProj/homePage.html">Home Page</a>
+    </p>
+
+
+
+</body></html>
